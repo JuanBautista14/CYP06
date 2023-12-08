@@ -167,7 +167,29 @@ void	ListaCandidatas		(
 void	ClonaPalabras(
 	char *	szPalabraLeida,	char szPalabrasSugeridas[][TAMTOKEN], int &	iNumSugeridas)		
 {
-	
+	const char* abc = "abcdefghijklmnopqrstuvwxyzáéíóú";
+	char sugerencia[70000][TAMTOKEN];
+	int longi;
+	int contapa = 0;
+	//variables contadores
+	int i;
+	strcpy_s(sugerencia[0], TAMTOKEN, szPalabraLeida);
+	longi = strlen(szPalabraLeida);
+
+	//ELIMINACION  DE CARACTERES
+	for (i = 0; i < longi; i++)
+	{
+		// Copiar la palabra original
+		strcpy_s(szPalabraLeida, TAMTOKEN - 1, sugerencia[0]);
+
+		// Eliminar i caracteres (la posición actual)
+		strcpy_s(szPalabraLeida + i, TAMTOKEN - 1, szPalabraLeida + i + 1);
+
+		// Almacenar la palabra modificada en el arreglo de palabras sugeridas
+		strcpy_s(sugerencia[i + 1], TAMTOKEN, szPalabraLeida);
+		contapa++;
+
+	}
 
 
 }
