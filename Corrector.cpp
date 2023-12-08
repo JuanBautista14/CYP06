@@ -73,11 +73,11 @@ void	Diccionario			(char *szNombre, char szPalabras[][TAMTOKEN], int iEstadistic
 					// eliminar los espacios en blanco
 					// tabuladores y saltos de linea consecutivos				
 				}
-				else
+				else if (linea[i] != '\n')
 				{
-					if (linea[i] != '(' && linea[i] != ')')
+					if (linea[i] != '(' && linea[i] != ')' && linea[i] != ',' && linea[i] != '.' && linea[i] != ';' && linea[i] != ':' && linea[i] != ' ' && linea[i] != '\'' && linea[i] != '-' && linea[i + 1] != '-' && linea[i + 1] != '\'' && linea[i] != '-' && linea[i] != '&')
 					{
-						palabraDetectada[indicePD] = linea[i];
+						palabraDetectada[indicePD] = tolower(linea[i]);
 						indicePD++;
 					}
 				}
