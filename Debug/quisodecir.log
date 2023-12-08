@@ -1,0 +1,5 @@
+﻿  Corrector.cpp
+C:\ICO\ProbarCyp\quisodecirAlumnos\quisodecir\Corrector.cpp(57,18): warning C4018: '<': no coinciden signed/unsigned
+  (compilando archivo de origen "/Corrector.cpp")
+  
+  quisodecir.vcxproj -> C:\ICO\ProbarCyp\quisodecirAlumnos\Debug\quisodecir.exe
