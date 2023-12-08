@@ -219,5 +219,8 @@ void	ClonaPalabras(
 			contapa++;
 		}
 	}
+	for (iNumSugeridas = 0;iNumSugeridas < contapa;iNumSugeridas++) {
+		strcpy_s(szPalabrasSugeridas[iNumSugeridas], TAMTOKEN, sugerencia[iNumSugeridas]);
+	}
 
 }
