@@ -85,6 +85,18 @@ void	Diccionario			(char *szNombre, char szPalabras[][TAMTOKEN], int iEstadistic
 		}
 
 		fclose(fpDicc);
+		// burbujazo
+		for (pas = 0;pas < iNumElementos - 1;pas++) {
+			for (comp = 0;comp < iNumElementos - 1;comp++) {
+				if (strcmp(szPalabras[comp], szPalabras[comp + 1]) > 0) {
+
+					strcpy_s(aux, TAMTOKEN, szPalabras[comp]);
+					strcpy_s(szPalabras[comp], TAMTOKEN, szPalabras[comp + 1]);
+					strcpy_s(szPalabras[comp + 1], TAMTOKEN, aux);
+
+				}
+			}
+		}
 	}
 	else
 	{
