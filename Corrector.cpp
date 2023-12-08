@@ -102,6 +102,23 @@ void	Diccionario			(char *szNombre, char szPalabras[][TAMTOKEN], int iEstadistic
 				}
 			}
 		}
+		for (i = 0; i < iNumElementos - 1; i++) {
+			for (int j = i + 1; j < iNumElementos;) {
+				if (strcmp(szPalabras[i], szPalabras[j]) == 0) {
+					iEstadisticas[i] = iEstadisticas[i] + 1;
+					// Eliminar elemento duplicado
+					for (int k = j; k < iNumElementos - 1; k++) {
+						strcpy_s(szPalabras[k], TAMTOKEN, szPalabras[k + 1]);
+
+					}
+					(iNumElementos)--;
+
+				}
+				else {
+					j++;
+				}
+			}
+		}
 	}
 
 	else
