@@ -204,6 +204,20 @@ void	ClonaPalabras(
 		strcpy_s(sugerencia[longi + i + 1], TAMTOKEN, szPalabraLeida);
 		contapa++;
 	}
+	//Sustitucion de palabras por alfabeto
+	for (int letra = 'a'; letra <= 'z'; letra++)
+	{
+		// Copiar la palabra original
+		strcpy_s(szPalabraLeida, TAMTOKEN, sugerencia[0]);
 
+		// Reemplazar cada letra por la letra actual del abecedario
+		for (i = 0; i < longi; i++)
+		{
+			strcpy_s(szPalabraLeida, TAMTOKEN, sugerencia[0]);
+			szPalabraLeida[i] = letra;
+			strcpy_s(sugerencia[contapa], TAMTOKEN, szPalabraLeida);
+			contapa++;
+		}
+	}
 
 }
