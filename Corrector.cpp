@@ -190,6 +190,20 @@ void	ClonaPalabras(
 		contapa++;
 
 	}
+	// Transponer pares de caracteres y almacenar las nuevas sugerencias
+	for (i = 0; i <= longi - 1; i++) {
+		// Copiar la palabra original
+		strcpy_s(szPalabraLeida, TAMTOKEN, sugerencia[0]);
+
+		// Intercambiar caracteres en posición i e i+1 sin usar void swap
+		szPalabraLeida[i] ^= szPalabraLeida[i + 1];
+		szPalabraLeida[i + 1] ^= szPalabraLeida[i];
+		szPalabraLeida[i] ^= szPalabraLeida[i + 1];
+
+		// Almacenar la palabra modificada en el arreglo de palabras sugeridas
+		strcpy_s(sugerencia[longi + i + 1], TAMTOKEN, szPalabraLeida);
+		contapa++;
+	}
 
 
 }
