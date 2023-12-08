@@ -32,8 +32,10 @@ void	Diccionario			(char *szNombre, char szPalabras[][TAMTOKEN], int iEstadistic
 	FILE* fpDicc;
 	char linea[4000];
 	char palabraDetectada[TAMTOKEN];
+	char aux[TAMTOKEN];
 	int i;
 	int indicePD;
+	int pas, comp;
 	iNumElementos = 0;
 	// abrir el achivo
 	if (DEPURAR == 1)
@@ -51,20 +53,23 @@ void	Diccionario			(char *szNombre, char szPalabras[][TAMTOKEN], int iEstadistic
 		{
 			fgets(linea, sizeof(linea), fpDicc);
 			if (DEPURAR == 1)
-				printf("\n%s\n", linea);
+				
 			for (i = 0; i < strlen(linea); i++)
 			{
 
 				// Detectar una palabra
-				if (linea[i] == ' ')
+				if ((linea[i] == ' ' || linea[i] == '.' || linea[i] == '\t' || linea[i] == '\n') && (linea[i + 1] != ' ' && linea[i + 1] != '\t' && linea[i + 1] != '\n' && linea[i] != ' - '))
 				{
+
 					palabraDetectada[indicePD] = '\0';
+
 					strcpy_s(szPalabras[iNumElementos], TAMTOKEN, palabraDetectada);
 					iEstadisticas[iNumElementos] = 1;
 					if (DEPURAR == 1)
 						//printf("\np: %s", palabraDetectada);
 						indicePD = 0;
 					iNumElementos++;
+
 					// eliminar los espacios en blanco
 					// tabuladores y saltos de linea consecutivos				
 				}
@@ -98,6 +103,7 @@ void	Diccionario			(char *szNombre, char szPalabras[][TAMTOKEN], int iEstadistic
 			}
 		}
 	}
+
 	else
 	{
 		if (DEPURAR == 1)
