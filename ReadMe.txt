@@ -1,4 +1,7 @@
 ﻿========================================================================
+Proyecto Final Computadoras y Programación.
+Nombre del proyecto: Corrector
+Elaborado por: Juan Bautista
     APLICACIÓN DE CONSOLA: quisodecir 
                            Información general del proyecto
 ========================================================================
